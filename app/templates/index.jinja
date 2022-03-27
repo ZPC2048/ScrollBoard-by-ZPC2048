@@ -1,0 +1,46 @@
+<!DOCTYPE html> 
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class = flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+<body>
+  <form method = "post" enctype = "multipart/form-data">
+    <input type = "file" accept = ".json" multiple = "" name = "upload_file">
+    <input type = "submit">
+  </form>
+</body>
+<!-- 
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Demo</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/scrollboard.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/scrollboard.js"></script>
+
+</head>
+
+<body>
+  <script type="text/javascript">
+      //2015-02-01 12:00:00 ~ 2015-02-01 17:00:00
+      var board = new Board(11, new Array(3, 8, 14), StringToDate("2016-06-05 12:00:00"), StringToDate("2016-06-05 16:00:00"));
+      board.showInitBoard();
+      $('html').keydown(function(e) {
+          if (e.keyCode == 13) {
+              board.keydown();
+          }
+      });
+    </script>
+</body>
+
+</html>
+-->
+
