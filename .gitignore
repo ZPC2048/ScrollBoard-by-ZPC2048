@@ -1,3 +1,4 @@
 *.doc
-.exe
-/__pychae__
+*.docx
+*.exe
+/app/__pycache__
