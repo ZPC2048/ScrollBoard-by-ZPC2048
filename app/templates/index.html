@@ -1,0 +1,18 @@
+<!DOCTYPE html> 
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class = flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+<body>
+  <form method = "post" enctype = "multipart/form-data">
+    Board Name: <input type = "text" name = "board_name"><br>
+    Team Data: <input type = "file" accept = ".json" name = "team_data"><br>
+    Submit Data: <input type = "file" accept = ".json" name = "submit_data"><br>
+    <input type = "submit">
+  </form>
+</body>

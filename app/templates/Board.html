@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<body>
+  <title>{{ board_name }}</title>
+  <table border="1">
+    <tr>
+      {% for head in board_head %}
+        <th>{{head}}</th>
+      {% endfor %}
+    </tr>
+    {% for row in board %}
+      <tr>
+        {% for item in row %}
+          <td>{{ item | safe }}</td>
+        {% endfor %}
+      </tr>
+    {% endfor %}
+  </table>
+</body>
