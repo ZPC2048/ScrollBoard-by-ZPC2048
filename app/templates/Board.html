@@ -1,16 +1,36 @@
 <!DOCTYPE html>
+<head>
+  <script src = "../js/Scroll_Board.js"></script>
+</head>
 <body>
   <title>{{ board_name }}</title>
   <table border="1">
     <tr>
       {% for head in board_head %}
-        <th>{{head}}</th>
+        <th> {{ head }} </th>
       {% endfor %}
     </tr>
-    {% for row in board %}
+    {% for row in board.values() %}
       <tr>
-        {% for item in row %}
-          <td>{{ item | safe }}</td>
+        <!-- <th> {{ rank }} </th> -->
+        <th> 1 </th>
+        <th> {{ row["team_name"] }} </th>
+        {% for item in row["submit_problem"].values() %}
+          {% if item[2] %}
+            {% if item[1] == 1 %}
+              <th> + </th>
+            {% else %}
+              <th> + {{ item[1] - 1 }}</th>
+            {% endif %}
+          {% else %}
+            {% if item[1] == 0 %}
+              <th></th>
+            {% elif item[1] == 1 %}
+              <th> - </th>
+            {% else %}
+              <th> - {{ item[1] }} </th>
+            {% endif %}
+          {% endif %}
         {% endfor %}
       </tr>
     {% endfor %}
