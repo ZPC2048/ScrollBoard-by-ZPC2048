@@ -10,9 +10,11 @@
 {% endwith %}
 <body>
   <form method = "post" enctype = "multipart/form-data">
-    Board Name: <input type = "text" name = "board_name"><br>
-    Team Data: <input type = "file" accept = ".json" name = "team_data"><br>
-    Submit Data: <input type = "file" accept = ".json" name = "submit_data"><br>
+    Board Name: <input type = "text" name = "board_name" required = "required" value = "ACM contest"><br>
+    Problem Number: <input type = "text" name = "problem_number" required = "required" value = "12"><br>
+    Freeze Time: <input type = "text" name = "freeze_time" required = "required" value = "240"><br>
+    Team Data: <input type = "file" accept = ".json" name = "team_data" required = "required"><br>
+    Submit Data: <input type = "file" accept = ".json" name = "submit_data" required = "required"><br>
     <input type = "submit">
   </form>
 </body>

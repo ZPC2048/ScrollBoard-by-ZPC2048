@@ -1,34 +1,36 @@
 <!DOCTYPE html>
 <head>
-  <script src = "../js/Scroll_Board.js"></script>
+  <script src = "{{ url_for('static', filename = 'js/Scroll_Board.js') }}"></script>
+  <script>
+    get_data({{ problem_number | tojson | safe }}, {{ board | tojson | safe }}, {{ freeze_submit | tojson | safe }});
+  </script>
 </head>
 <body>
   <title>{{ board_name }}</title>
-  <table border="1">
+  <table border="1" id="Board">
     <tr>
       {% for head in board_head %}
         <th> {{ head }} </th>
       {% endfor %}
     </tr>
-    {% for row in board.values() %}
-      <tr>
-        <!-- <th> {{ rank }} </th> -->
-        <th> 1 </th>
+    {% for id, row in board.items() %}
+      <tr id="{{ id }}">
+        <th> {{ row["rank"] }} </th>
         <th> {{ row["team_name"] }} </th>
         {% for item in row["submit_problem"].values() %}
           {% if item[2] %}
             {% if item[1] == 1 %}
-              <th> + </th>
+              <th> <p> + </p> <p> {{ item[0] }} </p> </th>
             {% else %}
-              <th> + {{ item[1] - 1 }}</th>
+              <th> <p> + {{ item[1] - 1 }} </p> <p> {{ item[0] }} </p> </th>
             {% endif %}
           {% else %}
             {% if item[1] == 0 %}
-              <th></th>
+              <th> <p></p> <p></p> </th>
             {% elif item[1] == 1 %}
-              <th> - </th>
+              <th> <p> - </p> <p></p> </th>
             {% else %}
-              <th> - {{ item[1] }} </th>
+              <th> <p> - {{ item[1] }} </p> <p></p> </th>
             {% endif %}
           {% endif %}
         {% endfor %}
